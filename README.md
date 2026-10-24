@@ -305,7 +305,7 @@ muconvert --version
 
 MuConvert Panel 只是譜面格式轉換工具，加上一個本機 / 區網 web panel。
 
-- 本專案不提供、不代為存放、也不鼓勵再散佈受著作權保護的遊戲音樂、官方譜面，或其他專有遊戲媒體，包括 SEGA、maimai、CHUNITHM、Ongeki 等的音樂、譜面、`.acb` / `.awb` 與相關資產。
+- 本專案不提供、不代為存放、也不鼓勵散佈受著作權保護的遊戲音樂、官方譜面，或其他專有遊戲媒體，包括 SEGA、maimai、CHUNITHM、Ongeki 音樂、譜面的相關資產。
 - 使用者要自行確認：對所轉換或用 `--package` 打包的每一個檔案，自己有合法使用權利。`--package` 只複製使用者電腦上已經存在的 companion files（見 [Companion files](#companion-files)），不會生成或附帶遊戲媒體。
 - 使用風險自負。本軟體依 LGPL-3.0-or-later，在適用法律允許的範圍內以「as is」提供，沒有任何明示或默示擔保，包括適銷性（merchantability）與特定用途適用性（fitness for a particular purpose）。品質與效能的風險由使用者承擔；若需要保固，必須另有書面約定。完整條文見 `LICENSE`（GPL-3.0 第 15、16 節，由 LGPL-3.0 引用）。
 
