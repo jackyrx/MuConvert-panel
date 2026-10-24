@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "muconvert-panel"
-version = "0.4.0b1"
+version = "0.5.0b1"
 description = "MuConvert wrapper + local/LAN web panel with pre-built multi-platform binaries"
 readme = "README.md"
 requires-python = ">=3.10"

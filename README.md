@@ -1,4 +1,4 @@
-# MuConvert Panel v0.4.0b1
+# MuConvert Panel v0.5.0b1
 
 Pre-built wrapper + local/LAN web panel for
 [MuConvert](https://github.com/MuNET-OSS/MuConvert).
@@ -22,7 +22,7 @@ Pre-built wrapper + local/LAN web panel for
 Universal wheel（本機 / 私人 index；檔案較大）：
 
 ```bash
-pip install dist/muconvert_panel-0.4.0b1-py3-none-any.whl
+pip install dist/muconvert_panel-0.5.0b1-py3-none-any.whl
 muconvert --version
 muconvert --ui
 ```
@@ -31,7 +31,7 @@ Per-platform wheels（PyPI 友善，每個檔案 < 100 MB）：
 
 ```bash
 python3 scripts/build_wheels.py --all
-pip install dist/muconvert_panel-0.4.0b1-py3-none-macosx_11_0_arm64.whl
+pip install dist/muconvert_panel-0.5.0b1-py3-none-macosx_11_0_arm64.whl
 ```
 
 Universal wheel 約 124 MB，超過 PyPI 單檔 100 MB 限制；上 PyPI 請用 per-platform wheels。
@@ -63,7 +63,7 @@ Clone 後二選一：
 ```bash
 # 1) 下載 GitHub Release 的 platform wheel 並安裝
 uv venv /tmp/mc
-uv pip install --python /tmp/mc/bin/python muconvert_panel-0.4.0b1-*.whl
+uv pip install --python /tmp/mc/bin/python muconvert_panel-0.5.0b1-*.whl
 /tmp/mc/bin/muconvert --version
 
 # 2) 自行 build 四平台 binary
@@ -88,6 +88,31 @@ python3 run.py --version
 ```
 
 只有一個難度時 `-o` 可直接指定檔案；多難度時 `-o` 必須是資料夾。
+
+## Run scripts
+
+macOS / Linux：
+
+```bash
+chmod +x run.sh
+./run.sh --version
+./run.sh --ui
+./run.sh chart/maidata.txt -o out.ma2
+```
+
+Windows：
+
+```bat
+run.bat --version
+run.bat --ui
+run.bat chart\maidata.txt -o out.ma2
+```
+
+兩個 script 都會：
+
+- 保留目前 working directory（相對 input/output 正常）
+- 檢查 Python 3.10+
+- 找不到 platform binary 時提示下載 Release wheel 或執行 `--build`
 
 ## Web UI / LAN
 
