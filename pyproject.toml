@@ -5,14 +5,18 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "muconvert-panel"
 version = "0.6.0b1"
-description = "MuConvert wrapper + local/LAN web panel with pre-built multi-platform binaries"
+description = "MuConvert wrapper + local/LAN web panel with pre-built binaries (MuConvert: Copyright Starrah & MuNet Team, LGPL-3.0-or-later)"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
 license = { text = "LGPL-3.0-or-later" }
+# Package authors are the wrapper contributors. The binaries redistributed in
+# Release wheels are MuConvert, Copyright (C) 2026 Starrah & MuNet Team,
+# LGPL-3.0-or-later. https://github.com/MuNET-OSS/MuConvert — see NOTICE.
 authors = [{ name = "MuGame wrapper contributors" }]
 keywords = ["maimai", "chunithm", "simai", "ma2", "chart", "converter"]
 classifiers = [
+  "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
   "Programming Language :: Python :: 3",
   "Operating System :: MacOS",
   "Operating System :: Microsoft :: Windows",
@@ -25,6 +29,7 @@ muconvert = "muconvert:main"
 [tool.setuptools]
 packages = ["muconvert"]
 include-package-data = true
+license-files = ["LICENSE", "NOTICE"]
 
 [tool.setuptools.package-data]
 muconvert = ["vendor/muconvert/*/*"]

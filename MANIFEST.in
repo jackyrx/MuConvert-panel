@@ -1,5 +1,6 @@
 include README.md
 include LICENSE
+include NOTICE
 include VERSION
 include RELEASE.md
 recursive-include muconvert/vendor *

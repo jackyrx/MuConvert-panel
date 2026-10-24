@@ -56,7 +56,7 @@ def run(cmd: list[str], cwd: Path, env: dict[str, str] | None = None) -> None:
 
 
 def copy_common(stage: Path) -> None:
-    for name in ("pyproject.toml", "README.md", "RELEASE.md", "VERSION", "MANIFEST.in", "LICENSE"):
+    for name in ("pyproject.toml", "README.md", "RELEASE.md", "VERSION", "MANIFEST.in", "LICENSE", "NOTICE"):
         shutil.copy2(ROOT / name, stage / name)
     pkg = stage / "muconvert"
     pkg.mkdir(parents=True, exist_ok=True)

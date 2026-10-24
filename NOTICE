@@ -1,0 +1,70 @@
+NOTICE
+
+MuConvert Panel redistributes the MuConvert program.
+
+MuConvert
+Copyright (C) 2026 Starrah & MuNet Team
+https://github.com/MuNET-OSS/MuConvert
+License: GNU Lesser General Public License, version 3 or later
+         (LGPL-3.0-or-later)
+
+The full license text is in LICENSE (the LGPL-3.0 text, plus the GPL-3.0
+text it incorporates by reference). Keep LICENSE and this NOTICE with any
+copy of the panel, including Release wheels and zips that contain pre-built
+MuConvert binaries. Preserve copyright and license notices; do not strip
+them from the distribution.
+
+This repository is a Python wrapper and a local/LAN web panel. Its own
+source is this project, also under LGPL-3.0-or-later. Release wheels and
+zips additionally ship pre-built, self-contained MuConvert binaries. The
+Corresponding Source for one of those binaries is the upstream MuConvert
+tree at the commit that produced it.
+
+v0.6.0b1 does not pin an upstream tag or commit. `python3 -m muconvert
+--build` clones the default branch of https://github.com/MuNET-OSS/MuConvert
+(or reuses an existing checkout under vendor/MuConvert-src or
+~/.cache/muconvert/MuConvert-src) and runs `dotnet publish`. A later build
+fetches tags and keeps that checkout; it does not switch to a fixed tag.
+
+Anyone who ships a pre-built binary should record and publish, alongside
+that wheel or zip:
+
+  - the upstream commit SHA (and tag, if any), for example
+    `git -C vendor/MuConvert-src rev-parse HEAD`
+  - the version string printed by `MuConvert --version` / `muconvert --version`
+
+Recipients can rebuild from that same commit with `python3 -m muconvert
+--build`, or by cloning the commit and following the Build section of
+README.md.
+
+MuConvert Panel is a format-conversion and local/LAN panel tool. It does
+not provide, host, or encourage redistribution of copyrighted game music,
+official charts, or other proprietary game media (SEGA, maimai, CHUNITHM,
+Ongeki, and similar), including .acb/.awb files. Users are responsible for
+having the right to use any files they convert or package. `--package` only
+copies files already present on the user's machine.
+
+There is no warranty for this program, to the extent permitted by applicable
+law. It is provided "as is", without warranty of any kind, express or
+implied, including merchantability and fitness for a particular purpose
+(LGPL-3.0 / GPL-3.0 sections 15 and 16, in LICENSE). Use it at your own risk.
+
+The same points are written for readers in README.md under
+"免責聲明 / Disclaimer". LAN / network limits are a separate section,
+"Security / network notes", and are not part of this notice.
+
+---
+
+MuConvert Panel 再散佈 MuConvert 程式。
+MuConvert：Copyright (C) 2026 Starrah & MuNet Team，LGPL-3.0-or-later
+（https://github.com/MuNET-OSS/MuConvert）。
+
+含 pre-built binary 的 wheel / zip 請一併附上 LICENSE 與本 NOTICE，並提供
+該 binary 的 upstream commit（Corresponding Source）或同等的重建方式。
+v0.6.0b1 沒有在程式裡 pin tag / commit。
+
+本工具只做格式轉換與本機 panel。它不提供、不代為存放、也不鼓勵再散佈
+遊戲音樂、官方譜面或其他專有遊戲媒體（SEGA / maimai / CHUNITHM / Ongeki 等，
+含 .acb / .awb）。使用者要自行確認有權使用所轉換或打包的檔案；`--package`
+只複製使用者機器上已有的檔案。軟體依 LGPL 以「as is」提供，沒有擔保。
+完整說明見 README 的「免責聲明 / Disclaimer」。
