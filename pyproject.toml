@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "muconvert-panel"
+version = "0.4.0b1"
+description = "MuConvert wrapper + local/LAN web panel with pre-built multi-platform binaries"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+license = { text = "LGPL-3.0-or-later" }
+authors = [{ name = "MuGame wrapper contributors" }]
+keywords = ["maimai", "chunithm", "simai", "ma2", "chart", "converter"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: MacOS",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+]
+
+[project.scripts]
+muconvert = "muconvert:main"
+
+[tool.setuptools]
+packages = ["muconvert"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+muconvert = ["vendor/muconvert/*/*"]
