@@ -36,7 +36,7 @@ from dataclasses import dataclass, field
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-WRAPPER_VERSION = "0.5.0b1"
+WRAPPER_VERSION = "0.6.0b1"
 REPO_URL = "https://github.com/MuNET-OSS/MuConvert"
 ROOT = Path(__file__).resolve().parent
 PROJECT_ROOT = ROOT.parent

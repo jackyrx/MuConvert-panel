@@ -1,7 +1,10 @@
-# MuConvert Panel v0.5.0b1
+# MuConvert Panel v0.6.0b1
 
 Pre-built wrapper + local/LAN web panel for
 [MuConvert](https://github.com/MuNET-OSS/MuConvert).
+
+版本：`0.6.0b1`（archive label: `ver0.6b`）  
+Release notes：[RELEASE.md](RELEASE.md)
 
 支援：
 
@@ -22,7 +25,7 @@ Pre-built wrapper + local/LAN web panel for
 Universal wheel（本機 / 私人 index；檔案較大）：
 
 ```bash
-pip install dist/muconvert_panel-0.5.0b1-py3-none-any.whl
+pip install dist/muconvert_panel-0.6.0b1-py3-none-any.whl
 muconvert --version
 muconvert --ui
 ```
@@ -31,7 +34,7 @@ Per-platform wheels（PyPI 友善，每個檔案 < 100 MB）：
 
 ```bash
 python3 scripts/build_wheels.py --all
-pip install dist/muconvert_panel-0.5.0b1-py3-none-macosx_11_0_arm64.whl
+pip install dist/muconvert_panel-0.6.0b1-py3-none-macosx_11_0_arm64.whl
 ```
 
 Universal wheel 約 124 MB，超過 PyPI 單檔 100 MB 限制；上 PyPI 請用 per-platform wheels。
@@ -63,7 +66,7 @@ Clone 後二選一：
 ```bash
 # 1) 下載 GitHub Release 的 platform wheel 並安裝
 uv venv /tmp/mc
-uv pip install --python /tmp/mc/bin/python muconvert_panel-0.5.0b1-*.whl
+uv pip install --python /tmp/mc/bin/python muconvert_panel-0.6.0b1-*.whl
 /tmp/mc/bin/muconvert --version
 
 # 2) 自行 build 四平台 binary
@@ -91,28 +94,68 @@ python3 run.py --version
 
 ## Run scripts
 
-macOS / Linux：
+macOS（建議）：
+
+```bash
+chmod +x run-mac.sh
+./run-mac.sh --version
+./run-mac.sh --ui
+./run-mac.sh chart/maidata.txt -o out.ma2
+```
+
+`run-mac.sh` 會在啟動前自動：
+
+- `xattr -dr com.apple.quarantine`
+- 對 `osx-arm64` / `osx-x64` binary 重新 ad-hoc codesign
+
+Linux：
 
 ```bash
 chmod +x run.sh
 ./run.sh --version
 ./run.sh --ui
-./run.sh chart/maidata.txt -o out.ma2
 ```
 
 Windows：
 
 ```bat
-run.bat --version
-run.bat --ui
-run.bat chart\maidata.txt -o out.ma2
+run-win.bat --version
+run-win.bat --ui
+run-win.bat chart\maidata.txt -o out.ma2
 ```
 
-兩個 script 都會：
+`run.bat` 仍保留為 generic Windows launcher；`run-win.bat` 是 alias。
+
+所有 script 都會：
 
 - 保留目前 working directory（相對 input/output 正常）
 - 檢查 Python 3.10+
 - 找不到 platform binary 時提示下載 Release wheel 或執行 `--build`
+
+## macOS Gatekeeper
+
+從瀏覽器下載的 zip 會帶 `com.apple.quarantine`；macOS 可能顯示：
+
+```text
+“MuConvert” Not Opened
+Apple could not verify “MuConvert” is free of malware...
+```
+
+建議直接使用 `run-mac.sh`，它會自動清 quarantine 並重新 ad-hoc codesign。
+
+手動處理：
+
+```bash
+cd MuGame-ver0.6b-full
+xattr -dr com.apple.quarantine .
+find muconvert/vendor/muconvert -name MuConvert -exec codesign --force --sign - {} \;
+./run.sh --version
+```
+
+若仍被阻擋：按 **Done** → System Settings → Privacy & Security → Security →
+`MuConvert` → **Open Anyway**。
+
+Windows 沒有這個 Gatekeeper 機制；SmartScreen 只會顯示一般警告。
 
 ## Web UI / LAN
 
